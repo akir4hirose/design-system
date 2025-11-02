@@ -11,7 +11,7 @@ export const Button = {
     _hover: { _disabled: { backgroundColor: disabledBackgroundColor } },
   },
   sizes: {
-    xs:{ fontSize:'sm' }, 
+    xs:{ fontSize:'sm' },
     sm:{ fontSize:'md' },
     md:{ fontSize:'lg' }, 
     lg:{ fontSize:'xl' },
