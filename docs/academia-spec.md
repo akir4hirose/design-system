@@ -26,7 +26,7 @@ Dr.'s Prime Academia
 - 一般患者（後々）
 
 ### 1.4 主要価値・特徴
-- 特徴①：意欲的な医師・医学生が集まる
+- 特徴①：意欲的な医師・医学生が集まる動画SNSプラットフォーム
 - 特徴②：動画配信コンテンツ数が、業界トップの数
 - 特徴③：
 
@@ -37,7 +37,6 @@ Dr.'s Prime Academia
 | バックエンド | NestJS / Node.js |
 | データベース | PostgreSQL |
 | インフラ | AWS / GCP |
-| その他 | Sentry, Datadog, OpenAI API |
 
 ---
 
@@ -63,7 +62,7 @@ Dr.'s Prime Academia
 | POST | `/api/login` | ログイン |
 
 #### データモデル
-- `User` テーブル：id, email, password_hash, created_at
+- `feed_entries` テーブル：id, content_id, feed_date, order, created_at, updated_at
 
 #### 関連機能・依存関係
 - コンテンツアルゴリズム
@@ -79,19 +78,17 @@ Dr.'s Prime Academia
 
 ---
 
-### 2.2 決済機能 {#payment}
+### 2.2 いいね機能 {#like}
 
 #### 機能概要
-ユーザーがサービスを購入・支払いできる仕組みを提供。
+ユーザーが視聴したコンテンツに「いいね」のアクションをすることができる
 
 #### ユースケース
-- クレジットカードによる決済
-- 請求書発行
+- コンテンツ視聴後に反応を送る「いいね」
+- 「いいね」をすることで、自分自身のチャンネルに「いいね」したコンテンツが蓄積される
 
 #### 仕様詳細
-- Stripe連携
-- 返金フロー定義済み
-- 決済ステータス：Pending / Succeeded / Failed
+- 
 
 #### API
 | メソッド | エンドポイント | 概要 |
@@ -100,7 +97,7 @@ Dr.'s Prime Academia
 | GET | `/api/payments/:id` | 決済詳細取得 |
 
 #### データモデル
-- `Payment` テーブル：id, user_id, amount, status, created_at
+- `content_likes` テーブル：id, content_id, user_id, created_at, updated_at
 
 #### 関連機能・依存関係
 - ユーザー管理機能
