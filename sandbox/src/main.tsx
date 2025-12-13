@@ -7,7 +7,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ChakraProvider value={theme}>
       <div style={{ padding: 32 }}>
-        <h1>DS Sandbox</h1>
+        <h1>Academia</h1>
         <CkButton variant="outline" disabled>
           Disabled Button
         </CkButton>
